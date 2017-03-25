@@ -796,6 +796,7 @@
  *   The result is a mesh, best for large or uneven beds.
  */
 //#define AUTO_BED_LEVELING_3POINT
+//#define AUTO_BED_LEVELING_LINEAR //Not booting when enabled on Malyan M150, memory issue?
 #define AUTO_BED_LEVELING_BILINEAR
 
 /**
