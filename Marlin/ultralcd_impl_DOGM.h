@@ -279,6 +279,7 @@ static void lcd_implementation_init() {
       }
     #endif // SHOW_CUSTOM_BOOTSCREEN
 
+/*
     const uint8_t offx = (u8g.getWidth() - (START_BMPWIDTH)) / 2;
 
     #if ENABLED(START_BMPHIGH)
@@ -303,7 +304,7 @@ static void lcd_implementation_init() {
         #endif
       } while (u8g.nextPage());
     }
-
+*/
     show_bootscreen = false;
 
   #endif // SHOW_BOOTSCREEN

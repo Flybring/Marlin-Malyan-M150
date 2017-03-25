@@ -126,9 +126,9 @@
     #if ENABLED(U8GLIB_ST7920) // SPI GLCD 12864 ST7920 ( like [www.digole.com] ) For Melzi V2.0
 
       #if IS_MELZI // Melzi board
-        #define LCD_PINS_RS     30 // CS chip select /SS chip slave select
-        #define LCD_PINS_ENABLE 29 // SID (MOSI)
-        #define LCD_PINS_D4     17 // SCK (CLK) clock
+        #define LCD_PINS_RS     17 // CS chip select /SS chip slave select
+        #define LCD_PINS_ENABLE 16 // SID (MOSI)
+        #define LCD_PINS_D4     11 // SCK (CLK) clock
         // Pin 27 is taken by LED_PIN, but Melzi LED does nothing with
         // Marlin so this can be used for BEEPER_PIN. You can use this pin
         // with M42 instead of BEEPER_PIN.
@@ -178,6 +178,8 @@
 
   #endif // !DOGLCD
 
+
+  //The encoder and click button
   #define BTN_EN1               11
   #define BTN_EN2               10
 
@@ -188,10 +190,32 @@
     #else
       #define BTN_ENC           30
     #endif
-  #else  // !Panelolu2
-    #define BTN_ENC             16
-    #define LCD_SDSS            28 // Smart Controller SD card reader rather than the Melzi
-  #endif // !Panelolu2
+  #else
+    #define BTN_ENC             28
+    //#define LCD_SDSS            28 // Smart Controller SD card reader rather than the Melzi
+  #endif // Panelolu2
+
+  #define SD_DETECT_PIN         -1
+
+#elif ENABLED(MAKRPANEL)
+
+  #define BEEPER_PIN            29
+
+  // Pins for DOGM SPI LCD Support
+  #define DOGLCD_A0             30
+  #define DOGLCD_CS             17
+  #define LCD_BACKLIGHT_PIN     28 // backlight LED on PA3
+  // GLCD features
+  #define LCD_CONTRAST           1
+  // Uncomment screen orientation
+  #define LCD_SCREEN_ROT_0
+  //#define LCD_SCREEN_ROT_90
+  //#define LCD_SCREEN_ROT_180
+  //#define LCD_SCREEN_ROT_270
+  //The encoder and click button
+  #define BTN_EN1               11
+  #define BTN_EN2               10
+  #define BTN_ENC               16
 
   #define SD_DETECT_PIN         -1
 
