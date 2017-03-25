@@ -5,6 +5,14 @@
 Additional documentation can be found at [The Marlin Documentation Project](http://www.marlinfw.org/).
 Please test this firmware and inform us if it misbehaves in any way, volunteers are standing by!
 
+## Malyan M150
+Compile settings:
+- Board: Sanguino
+- Processor: ATmega1284 16Mhz
+
+Flash cmd line:
+avrdude.exe -v -p atmega1284p -c arduino -P com3 -b 57600 -V -U flash:w:Marlin.ino.hex
+
 ## Release Candidate -- Marlin 1.1.0-RC8 - 6 Dec 2016
 
 __Not for production use – use with caution!__

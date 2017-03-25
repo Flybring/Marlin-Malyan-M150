@@ -122,7 +122,7 @@
 #if ENABLED(ULTRA_LCD) && ENABLED(NEWPANEL)
 
   // No buzzer installed
-  #define BEEPER_PIN 27
+  #define BEEPER_PIN -1
 
   // LCD Pins
   #if ENABLED(DOGLCD)
@@ -176,14 +176,14 @@
   #define BTN_EN2               29
   #if ENABLED(LCD_I2C_PANELOLU2)
     #if IS_MELZI
-      #define BTN_ENC           28
-      //#define LCD_SDSS          30 // Panelolu2 SD card reader rather than the Melzi
+      #define BTN_ENC           29
+      #define LCD_SDSS          30 // Panelolu2 SD card reader rather than the Melzi
     #else
       #define BTN_ENC           30
     #endif
   #else
-    #define BTN_ENC             16
-    #define LCD_SDSS            28 // Smart Controller SD card reader rather than the Melzi
+    #define BTN_ENC             28
+    //#define LCD_SDSS            28 // Smart Controller SD card reader rather than the Melzi
   #endif // Panelolu2
 
   #define SD_DETECT_PIN         -1
