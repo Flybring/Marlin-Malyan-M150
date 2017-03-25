@@ -121,10 +121,6 @@
 //
 #if ENABLED(ULTRA_LCD) && ENABLED(NEWPANEL)
 
-  // No buzzer installed
-  #define BEEPER_PIN -1
-
-  // LCD Pins
   #if ENABLED(DOGLCD)
 
     #if ENABLED(U8GLIB_ST7920) // SPI GLCD 12864 ST7920 ( like [www.digole.com] ) For Melzi V2.0
@@ -137,7 +133,7 @@
         // Marlin so this can be used for BEEPER_PIN. You can use this pin
         // with M42 instead of BEEPER_PIN.
         #define BEEPER_PIN      27
-      #else         // Sanguinololu 1.3
+      #else        // Sanguinololu 1.3
         #define LCD_PINS_RS      4
         #define LCD_PINS_ENABLE 17
         #define LCD_PINS_D4     30
@@ -149,8 +145,19 @@
     #else // DOGM SPI LCD Support
 
       #define DOGLCD_A0         30
-      #define DOGLCD_CS         29
       #define LCD_CONTRAST       1
+
+      #if ENABLED(MAKRPANEL)
+
+        #define BEEPER_PIN      29
+        #define DOGLCD_CS       17
+        #define LCD_BACKLIGHT_PIN 28 // PA3
+
+      #else // !MAKRPANEL
+
+        #define DOGLCD_CS       29
+
+      #endif
 
     #endif
 
@@ -160,7 +167,7 @@
     //#define LCD_SCREEN_ROT_180
     //#define LCD_SCREEN_ROT_270
 
-  #else // !DOGLCD - Standard Hitachi LCD controller
+  #else // !DOGLCD
 
     #define LCD_PINS_RS          4
     #define LCD_PINS_ENABLE     17
@@ -171,9 +178,11 @@
 
   #endif // !DOGLCD
 
+
   //The encoder and click button
-  #define BTN_EN1               30
-  #define BTN_EN2               29
+  #define BTN_EN1               11
+  #define BTN_EN2               10
+
   #if ENABLED(LCD_I2C_PANELOLU2)
     #if IS_MELZI
       #define BTN_ENC           29
@@ -210,4 +219,4 @@
 
   #define SD_DETECT_PIN         -1
 
-#endif // MAKRPANEL
+#endif // ULTRA_LCD && NEWPANEL
